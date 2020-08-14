@@ -1,0 +1,16 @@
+{% extends 'appname/base.html'%}
+
+{% block content %}
+
+
+
+<div class="row h-25 justify-content-center">
+    <div>
+  <form method="POST" action="/signin">
+    {% csrf_token %}
+    {{ signin_form.as_p }}
+    <button type="submit" class="btn btn-primary" value="submit">login</button>
+  </form>
+    </div>
+</div>
+  {% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'appname/base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="submit">
+</form>
+
+{% endblock %}

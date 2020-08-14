@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>instagram</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'appname/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'appname/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'appname/vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="startbootstrap-landing-page-gh-pages\css\text.css">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'appname/css/landing-page.min.css' %}" rel="stylesheet">
+  <link href="{% static 'appname/css/text.css' %}" rel="stylesheet">
+<style>
+  .dong input {
+    width:20px;
+  }
+</style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <a class="navbar-brand" href="/">instagram</a>
+    <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarColor03" aria-label="Toggle navigation" type="button" data-target="#navbarColor03" data-toggle="collapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Feed <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/create">Write</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/mypage">mypage</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="/mypage">mypage</a>
+        </li> -->
+
+
+      {% if user.is_authenticated %}
+      <h7 class="masthead-subheading mb-0" style="padding-left: 680px; margin-top: 10px;"> 안녕하세용 {{ user.username }}님</h7>
+      <a href="{% url 'logout' %}" style="color: gray; padding-left: 5px; margin-top: 10px;"> logout</a>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'signin' %}">로그인</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'signup' %}">회원가입</a>
+      </li>
+
+      {% endif %}
+
+
+      </ul>
+    </div>
+  </nav>
+  {% block header %}
+  {% endblock %}
+
+  {% block content %}
+  {% endblock %}
+
+
+
+  <!-- Footer -->
+  <footer class="footer bg-warning text-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+<p> !!!!!!!!!!!!</p>
+          <p class="text-muted small mb-4 mb-lg-0"> Copyright &copy; Heejeong, 2020</p>
+        </div>
+        
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'appname/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'appname/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>
